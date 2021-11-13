@@ -65,18 +65,35 @@ namespace KIralynok
     }
     public void Elhelyez( int n)
     {
-      Random random = new Random(Guid.NewGuid().GetHashCode());
-      for (int i = 0; i < n; i++)
-      {
-        int sor, oszlop;
-        do
-        {
-          sor = random.Next(0, 8);
-          oszlop = random.Next(0, 8);
-        } while (T[sor,oszlop]!= UresCella);
-        T[sor, oszlop] = 'K';
-        
-      }
+            #region regi
+            //Random random = new Random(Guid.NewGuid().GetHashCode());
+            //for (int i = 0; i < n; i++)
+            //{
+            //    int sor, oszlop;
+            //    do
+            //    {
+            //        sor = random.Next(0, 8);
+            //        oszlop = random.Next(0, 8);
+            //    } while (T[sor, oszlop] != UresCella);
+            //    T[sor, oszlop] = 'K';
+
+            //}
+            #endregion
+            List<Helyek> helyek = new List<Helyek>();
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+            for (int i = 0; i < 8; i++)
+             {
+               for (int j = 0; j < 8; j++)
+                {
+                 helyek.Add(new Helyek(i,j));
+                }
+             }
+            for (int i = 0; i < n; i++)
+            {
+                int random = rnd.Next(0,helyek.Count);
+                T[helyek[random].Oszlop, helyek[random].Sor] = 'K';
+                helyek.RemoveAt(random);
+            }
     }
     public bool UresSor( int melyikSor)
     {

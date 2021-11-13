@@ -47,6 +47,7 @@ namespace KIralynok
       
     }
 
+
     private static void KilencesFeladat()
     {
       Console.WriteLine("9.feladat: Üres oszlopok és sorok száma:");
@@ -56,7 +57,7 @@ namespace KIralynok
 
     private static void HatodikFeladat()
     {
-      tabla.Elhelyez(5);
+      tabla.Elhelyez(64);
       tabla.Megjelenit();
     }
   }
